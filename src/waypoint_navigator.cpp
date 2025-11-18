@@ -185,12 +185,12 @@ private:
             }
             
             // P 제어 (거리 기반 속도)
-            const double Kp_distance = 0.5;
+            const double Kp_distance = 1;
             double speed = Kp_distance * distance;
             
             // 속도 제한
-            const double min_speed = 0.1;   // m/s
-            const double max_speed = 0.4;   // m/s
+            const double min_speed = 0.3;   // m/s
+            const double max_speed = 1.0;   // m/s
             if (speed < min_speed) speed = min_speed;
             if (speed > max_speed) speed = max_speed;
             
