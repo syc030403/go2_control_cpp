@@ -45,3 +45,16 @@ if(BUILD_TESTING)
 endif()
 
 ament_package()
+add_executable(waypoint_navigator src/waypoint_navigator.cpp)
+
+ament_target_dependencies(waypoint_navigator
+  rclcpp
+  geometry_msgs
+  unitree_api
+  unitree_go
+)
+
+install(TARGETS
+  waypoint_navigator
+  DESTINATION lib/${PROJECT_NAME}
+)
