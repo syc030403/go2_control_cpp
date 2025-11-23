@@ -21,6 +21,7 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(unitree_api REQUIRED)
 find_package(unitree_go REQUIRED)
+find_package(std_srvs REQUIRED)
 
 # Add executable - simple_go2_walker만!
 add_executable(simple_go2_walker src/simple_go2_walker.cpp)
@@ -56,5 +57,17 @@ ament_target_dependencies(waypoint_navigator
 
 install(TARGETS
   waypoint_navigator
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(manual_waypointRecorder src/manual_waypointRecorder.cpp)
+ament_target_dependencies(manual_waypointRecorder 
+  rclcpp 
+  unitree_go
+  std_srvs
+)
+
+install(TARGETS
+  manual_waypointRecorder
   DESTINATION lib/${PROJECT_NAME}
 )
