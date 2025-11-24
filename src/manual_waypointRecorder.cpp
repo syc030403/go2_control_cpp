@@ -21,13 +21,17 @@ public:
     WaypointRecorder() : Node("waypoint_recorder")
     {
         // 파라미터 선언
-        this->declare_parameter("recording_interval", 0.5);
+        this->declare_parameter("recording_interval", 0.3);
         this->declare_parameter("min_distance", 0.3);
-        this->declare_parameter("output_file", "recorded_waypoints.csv");
+        this->declare_parameter("min_rotation_deg", 60.0);  // 새 파라미터: 회전 임계값
+        this->declare_parameter("output_file", "waypoints.csv");
         
         recording_interval_ = this->get_parameter("recording_interval").as_double();
         min_distance_ = this->get_parameter("min_distance").as_double();
+        min_rotation_deg_ = this->get_parameter("min_rotation_deg").as_double();
         output_file_ = this->get_parameter("output_file").as_string();
+        
+        min_rotation_rad_ = min_rotation_deg_ * M_PI / 180.0;  // 라디안 변환
         
         // SportModeState 구독
         state_subscriber_ = this->create_subscription<unitree_go::msg::SportModeState>(
@@ -64,6 +68,7 @@ public:
         RCLCPP_INFO(this->get_logger(), "Waypoint Recorder Node Started");
         RCLCPP_INFO(this->get_logger(), "Recording interval: %.2f seconds", recording_interval_);
         RCLCPP_INFO(this->get_logger(), "Minimum distance: %.2f meters", min_distance_);
+        RCLCPP_INFO(this->get_logger(), "Minimum rotation: %.1f degrees", min_rotation_deg_);
         RCLCPP_INFO(this->get_logger(), "Output file: %s", output_file_.c_str());
         RCLCPP_INFO(this->get_logger(), "\n=== Commands ===");
         RCLCPP_INFO(this->get_logger(), "Start recording: ros2 service call /start_recording std_srvs/srv/Trigger");
@@ -84,28 +89,65 @@ private:
         }
     }
     
+    // 각도 차이를 -π ~ π 범위로 정규화
+    double normalizeAngle(double angle)
+    {
+        while (angle > M_PI) angle -= 2.0 * M_PI;
+        while (angle < -M_PI) angle += 2.0 * M_PI;
+        return angle;
+    }
+    
+    // 두 각도 사이의 최단 각도 차이 계산
+    double calculateAngleDifference(double angle1, double angle2)
+    {
+        double diff = normalizeAngle(angle2 - angle1);
+        return std::abs(diff);
+    }
+    
     void recordingTimerCallback()
     {
         if (!is_recording_ || !state_received_) {
             return;
         }
         
-        // 첫 웨이포인트이거나 충분히 이동했을 때만 기록
+        // 첫 웨이포인트이거나 충분히 이동/회전했을 때만 기록
         if (waypoints_.empty()) {
             addWaypoint();
             RCLCPP_INFO(this->get_logger(), "First waypoint recorded at (%.2f, %.2f, %.2f deg)", 
                        current_x_, current_y_, current_yaw_ * 180.0 / M_PI);
         } else {
+            const Waypoint& last_wp = waypoints_.back();
+            
+            // 거리 계산
             double distance = calculateDistance(
                 current_x_, current_y_,
-                waypoints_.back().x, waypoints_.back().y
+                last_wp.x, last_wp.y
             );
             
-            if (distance >= min_distance_) {
+            // 회전 각도 계산
+            double rotation = calculateAngleDifference(last_wp.yaw, current_yaw_);
+            double rotation_deg = rotation * 180.0 / M_PI;
+            
+            // 거리 또는 회전 조건 만족 시 웨이포인트 추가
+            bool distance_condition = distance >= min_distance_;
+            bool rotation_condition = rotation >= min_rotation_rad_;
+            
+            if (distance_condition || rotation_condition) {
                 addWaypoint();
-                RCLCPP_INFO(this->get_logger(), "Waypoint %zu recorded at (%.2f, %.2f, %.2f deg)", 
+                
+                std::string reason = "";
+                if (distance_condition && rotation_condition) {
+                    reason = "(dist: " + std::to_string((int)(distance*100)) + "cm, rot: " + 
+                            std::to_string((int)rotation_deg) + "deg)";
+                } else if (distance_condition) {
+                    reason = "(distance: " + std::to_string((int)(distance*100)) + "cm)";
+                } else {
+                    reason = "(rotation: " + std::to_string((int)rotation_deg) + "deg)";
+                }
+                
+                RCLCPP_INFO(this->get_logger(), "Waypoint %zu recorded at (%.2f, %.2f, %.2f deg) %s", 
                            waypoints_.size(), current_x_, current_y_, 
-                           current_yaw_ * 180.0 / M_PI);
+                           current_yaw_ * 180.0 / M_PI, reason.c_str());
             }
         }
     }
@@ -151,6 +193,8 @@ private:
         RCLCPP_INFO(this->get_logger(), "\n===========================================");
         RCLCPP_INFO(this->get_logger(), "RECORDING STARTED");
         RCLCPP_INFO(this->get_logger(), "Drive the robot to record waypoints");
+        RCLCPP_INFO(this->get_logger(), "Conditions: %.2fm OR %.0f degrees rotation", 
+                   min_distance_, min_rotation_deg_);
         RCLCPP_INFO(this->get_logger(), "===========================================");
     }
     
@@ -207,22 +251,13 @@ private:
         // CSV 헤더 작성
         file << "x,y,yaw\n";
         
-        // 웨이포인트 데이터 작성
+        // 웨이포인트 데이터 작성, 소수점 1자리
         for (const auto& wp : waypoints_) {
-            file << std::fixed << std::setprecision(6)
+            file << std::fixed << std::setprecision(1)
                  << wp.x << ","
                  << wp.y << ","
                  << wp.yaw << "\n";
         }
-        /*
-        // 웨이포인트 데이터 작성, 소수점 2자리
-        for (const auto& wp : waypoints_) {
-            file << std::fixed << std::setprecision(2)
-                 << wp.x << ","
-                 << wp.y << ","
-                 << wp.yaw << "\n";
-        }
-        */
         file.close();
         
         // 기본 파일명으로도 저장
@@ -230,7 +265,7 @@ private:
         if (default_file.is_open()) {
             default_file << "x,y,yaw\n";
             for (const auto& wp : waypoints_) {
-                default_file << std::fixed << std::setprecision(6)
+                default_file << std::fixed << std::setprecision(1)
                             << wp.x << ","
                             << wp.y << ","
                             << wp.yaw << "\n";
@@ -287,6 +322,8 @@ private:
     
     double recording_interval_;
     double min_distance_;
+    double min_rotation_deg_;  // 도 단위
+    double min_rotation_rad_;  // 라디안 단위
     std::string output_file_;
 };
 

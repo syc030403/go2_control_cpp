@@ -124,14 +124,23 @@ private:
                    waypoints_.size(), filename.c_str());
         return !waypoints_.empty();
     }
-    
+    /*
+    // 원본
     void stateCallback(const unitree_go::msg::SportModeState::SharedPtr msg) {
         current_x_ = msg->position[0];
         current_y_ = msg->position[1];
         current_yaw_rad_ = msg->imu_state.rpy[2];
         position_ready_ = true;
     }
-    
+    */
+   // 수정, 소수점 2자리
+    void stateCallback(const unitree_go::msg::SportModeState::SharedPtr msg) {
+        current_x_ = std::round(msg->position[0] * 10.0) / 10.0;
+        current_y_ = std::round(msg->position[1] * 10.0) / 10.0;
+        current_yaw_rad_ = msg->imu_state.rpy[2];  // yaw는 원본 사용
+        position_ready_ = true;
+    }
+
     double normalizeRad(double ang) {
         while (ang >  PI) ang -= 2.0 * PI;
         while (ang < -PI) ang += 2.0 * PI;
@@ -164,6 +173,15 @@ private:
     }
     
     void controlLoop() {
+        
+
+        // 초기 각도 조정
+        static bool first_log = true;
+        if (first_log && position_ready_) {
+            RCLCPP_INFO(this->get_logger(), "Initial yaw: %.1f°", current_yaw_rad_ * 180 / PI);
+            first_log = false;
+        }
+
         if (!position_ready_) return;
         
         switch (stage_) {
@@ -173,7 +191,7 @@ private:
             double yaw_err_rad = getYawError();
             double yaw_err_deg = yaw_err_rad * 180.0 / PI;
             
-            const double yaw_tolerance = 0.01 * PI / 180.0;
+            const double yaw_tolerance = 0.5 * PI / 180.0;
             if (std::fabs(yaw_err_rad) < yaw_tolerance) {
                 RCLCPP_INFO(this->get_logger(), "Turn complete!");
                 sendStop();
@@ -184,7 +202,7 @@ private:
             const double Kp_yaw = 20.0;
             double w_cmd = Kp_yaw * yaw_err_rad;
             
-            const double min_w = 0.5;
+            const double min_w = 0.1;
             const double max_w = 1.0;
             if (w_cmd > 0.0 && w_cmd < min_w) w_cmd = min_w;
             if (w_cmd < 0.0 && w_cmd > -min_w) w_cmd = -min_w;
@@ -218,7 +236,7 @@ private:
             const double Kp_distance = 1;
             double speed = Kp_distance * distance;
             
-            const double min_speed = 0.3;
+            const double min_speed = 0.5;
             const double max_speed = 1.0;
             if (speed < min_speed) speed = min_speed;
             if (speed > max_speed) speed = max_speed;
@@ -249,7 +267,7 @@ private:
             current_waypoint_idx_++;
             
             if (current_waypoint_idx_ >= waypoints_.size()) {
-                RCLCPP_INFO(this->get_logger(), "🎉 All waypoints completed! 🎉");
+                RCLCPP_INFO(this->get_logger(), " All waypoints completed! ");
                 stage_ = STAGE_COMPLETED;
             } else {
                 RCLCPP_INFO(this->get_logger(), "--- Moving to next waypoint [%d/%zu] ---",
