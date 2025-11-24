@@ -173,7 +173,7 @@ private:
             double yaw_err_rad = getYawError();
             double yaw_err_deg = yaw_err_rad * 180.0 / PI;
             
-            const double yaw_tolerance = 0.1 * PI / 180.0;
+            const double yaw_tolerance = 0.01 * PI / 180.0;
             if (std::fabs(yaw_err_rad) < yaw_tolerance) {
                 RCLCPP_INFO(this->get_logger(), "Turn complete!");
                 sendStop();
@@ -184,7 +184,7 @@ private:
             const double Kp_yaw = 20.0;
             double w_cmd = Kp_yaw * yaw_err_rad;
             
-            const double min_w = 0.15;
+            const double min_w = 0.5;
             const double max_w = 1.0;
             if (w_cmd > 0.0 && w_cmd < min_w) w_cmd = min_w;
             if (w_cmd < 0.0 && w_cmd > -min_w) w_cmd = -min_w;

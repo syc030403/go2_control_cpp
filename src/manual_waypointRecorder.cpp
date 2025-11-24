@@ -214,7 +214,15 @@ private:
                  << wp.y << ","
                  << wp.yaw << "\n";
         }
-        
+        /*
+        // 웨이포인트 데이터 작성, 소수점 2자리
+        for (const auto& wp : waypoints_) {
+            file << std::fixed << std::setprecision(2)
+                 << wp.x << ","
+                 << wp.y << ","
+                 << wp.yaw << "\n";
+        }
+        */
         file.close();
         
         // 기본 파일명으로도 저장
