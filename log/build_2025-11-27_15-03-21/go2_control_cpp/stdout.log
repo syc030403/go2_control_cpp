@@ -1,0 +1,22 @@
+[100%] Built target manual_waypointRecorder
+[100%] Built target waypoint_navigator
+[100%] Built target simple_go2_walker
+-- Install configuration: ""
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/go2_control_cpp/simple_go2_walker
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/ament_index/resource_index/package_run_dependencies/go2_control_cpp
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/ament_index/resource_index/parent_prefix_path/go2_control_cpp
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/environment/ament_prefix_path.sh
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/environment/path.sh
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/environment/path.dsv
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/local_setup.bash
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/local_setup.sh
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/local_setup.zsh
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/local_setup.dsv
+-- Installing: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.dsv
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/ament_index/resource_index/packages/go2_control_cpp
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/cmake/go2_control_cppConfig.cmake
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/cmake/go2_control_cppConfig-version.cmake
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.xml
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/go2_control_cpp/waypoint_navigator
+-- Up-to-date: /home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/go2_control_cpp/manual_waypointRecorder

@@ -1,0 +1,108 @@
+[0.134s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.134s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f01a83a66d0>>, merge_install=False, metas=['./colcon.meta'], mixin=None, mixin_files=None, mixin_verb=('build',), packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=16, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f01a83a66d0>, verb_name='build', verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f01a83541c0>)
+[0.238s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.238s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.238s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.238s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.238s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.238s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.238s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/younghang/ros2_ws/src/go2_control_cpp'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.248s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'go2_control_cpp'
+[0.248s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.248s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.249s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.260s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.260s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.262s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 8 installed packages in /home/younghang/install
+[0.262s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/younghang/unitree_ros2/cyclonedds_ws/install
+[0.263s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/younghang/pp_ws/install
+[0.264s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 291 installed packages in /opt/ros/foxy
+[0.275s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'cmake_args' from command line to 'None'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'cmake_target' from command line to 'None'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'cmake_clean_cache' from command line to 'False'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'cmake_clean_first' from command line to 'False'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'cmake_force_configure' from command line to 'False'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'ament_cmake_args' from command line to 'None'
+[0.336s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'catkin_cmake_args' from command line to 'None'
+[0.337s] Level 5:colcon.colcon_core.verb:set package 'go2_control_cpp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.337s] DEBUG:colcon.colcon_core.verb:Building package 'go2_control_cpp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp', 'merge_install': False, 'path': '/home/younghang/ros2_ws/src/go2_control_cpp', 'symlink_install': False, 'test_result_base': None}
+[0.337s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.338s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.338s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/younghang/ros2_ws/src/go2_control_cpp' with build type 'ament_cmake'
+[0.338s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/younghang/ros2_ws/src/go2_control_cpp'
+[0.340s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.340s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.340s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.349s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/younghang/ros2_ws/src/go2_control_cpp -DCMAKE_INSTALL_PREFIX=/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp
+[2.387s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/younghang/ros2_ws/src/go2_control_cpp -DCMAKE_INSTALL_PREFIX=/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp
+[2.388s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp -- -j16 -l16
+[7.023s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp -- -j16 -l16
+[7.040s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp
+[7.060s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(go2_control_cpp)
+[7.061s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp
+[7.066s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp' for CMake module files
+[7.068s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp' for CMake config files
+[7.068s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_control_cpp', 'cmake_prefix_path')
+[7.069s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/hook/cmake_prefix_path.ps1'
+[7.071s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/hook/cmake_prefix_path.dsv'
+[7.072s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/hook/cmake_prefix_path.sh'
+[7.075s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib'
+[7.075s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/bin'
+[7.075s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/pkgconfig/go2_control_cpp.pc'
+[7.075s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/python3.8/site-packages'
+[7.075s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/bin'
+[7.075s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.ps1'
+[7.076s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.dsv'
+[7.076s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.sh'
+[7.077s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.bash'
+[7.077s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.zsh'
+[7.078s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/colcon-core/packages/go2_control_cpp)
+[7.078s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(go2_control_cpp)
+[7.078s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp' for CMake module files
+[7.079s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp' for CMake config files
+[7.079s] Level 1:colcon.colcon_core.shell:create_environment_hook('go2_control_cpp', 'cmake_prefix_path')
+[7.079s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/hook/cmake_prefix_path.ps1'
+[7.079s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/hook/cmake_prefix_path.dsv'
+[7.080s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/hook/cmake_prefix_path.sh'
+[7.080s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib'
+[7.080s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/bin'
+[7.080s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/pkgconfig/go2_control_cpp.pc'
+[7.080s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/lib/python3.8/site-packages'
+[7.080s] Level 1:colcon.colcon_core.environment:checking '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/bin'
+[7.081s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.ps1'
+[7.081s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.dsv'
+[7.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.sh'
+[7.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.bash'
+[7.082s] INFO:colcon.colcon_core.shell:Creating package script '/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/go2_control_cpp/package.zsh'
+[7.082s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/younghang/ros2_ws/src/go2_control_cpp/install/go2_control_cpp/share/colcon-core/packages/go2_control_cpp)
+[7.083s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.083s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.083s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[7.083s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.093s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.093s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.093s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.108s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.108s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/younghang/ros2_ws/src/go2_control_cpp/install/local_setup.ps1'
+[7.109s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/younghang/ros2_ws/src/go2_control_cpp/install/_local_setup_util_ps1.py'
+[7.111s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/younghang/ros2_ws/src/go2_control_cpp/install/setup.ps1'
+[7.113s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/younghang/ros2_ws/src/go2_control_cpp/install/local_setup.sh'
+[7.114s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/younghang/ros2_ws/src/go2_control_cpp/install/_local_setup_util_sh.py'
+[7.115s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/younghang/ros2_ws/src/go2_control_cpp/install/setup.sh'
+[7.117s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/younghang/ros2_ws/src/go2_control_cpp/install/local_setup.bash'
+[7.117s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/younghang/ros2_ws/src/go2_control_cpp/install/setup.bash'
+[7.118s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/younghang/ros2_ws/src/go2_control_cpp/install/local_setup.zsh'
+[7.119s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/younghang/ros2_ws/src/go2_control_cpp/install/setup.zsh'

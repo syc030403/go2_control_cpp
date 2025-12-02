@@ -21,8 +21,8 @@ public:
     WaypointRecorder() : Node("waypoint_recorder")
     {
         // 파라미터 선언
-        this->declare_parameter("recording_interval", 0.3);
-        this->declare_parameter("min_distance", 0.3);
+        this->declare_parameter("recording_interval", 0.5);
+        this->declare_parameter("min_distance", 0.5);
         this->declare_parameter("min_rotation_deg", 60.0);  // 새 파라미터: 회전 임계값
         this->declare_parameter("output_file", "waypoints.csv");
         

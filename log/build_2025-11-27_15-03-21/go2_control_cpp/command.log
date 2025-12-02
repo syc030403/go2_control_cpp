@@ -1,0 +1,4 @@
+Invoking command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp -- -j16 -l16
+Invoked command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp -- -j16 -l16
+Invoking command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp
+Invoked command in '/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp

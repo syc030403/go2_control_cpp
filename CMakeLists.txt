@@ -8,7 +8,7 @@ endif()
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -46,9 +46,34 @@ if(BUILD_TESTING)
 endif()
 
 ament_package()
-add_executable(waypoint_navigator src/waypoint_navigator.cpp)
 
-ament_target_dependencies(waypoint_navigator
+add_executable(manual_waypointRecorder_mk0 src/manual_waypointRecorder_mk0.cpp)
+ament_target_dependencies(manual_waypointRecorder_mk0
+  rclcpp 
+  unitree_go
+  std_srvs
+)
+
+install(TARGETS
+  manual_waypointRecorder_mk0
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(manual_waypointRecorder_mk1 src/manual_waypointRecorder_mk1.cpp)
+ament_target_dependencies(manual_waypointRecorder_mk1
+  rclcpp 
+  unitree_go
+  std_srvs
+)
+
+install(TARGETS
+  manual_waypointRecorder_mk1
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(waypoint_navigator_mk0 src/waypoint_navigator_mk0.cpp)
+
+ament_target_dependencies(waypoint_navigator_mk0
   rclcpp
   geometry_msgs
   unitree_api
@@ -56,18 +81,62 @@ ament_target_dependencies(waypoint_navigator
 )
 
 install(TARGETS
-  waypoint_navigator
+  waypoint_navigator_mk0
   DESTINATION lib/${PROJECT_NAME}
 )
 
-add_executable(manual_waypointRecorder src/manual_waypointRecorder.cpp)
-ament_target_dependencies(manual_waypointRecorder 
-  rclcpp 
+add_executable(waypoint_navigator_mk1 src/waypoint_navigator_mk1.cpp)
+
+ament_target_dependencies(waypoint_navigator_mk1
+  rclcpp
+  geometry_msgs
+  unitree_api
   unitree_go
-  std_srvs
 )
 
 install(TARGETS
-  manual_waypointRecorder
+  waypoint_navigator_mk1
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(waypoint_navigator_mk2 src/waypoint_navigator_mk2.cpp)
+
+ament_target_dependencies(waypoint_navigator_mk2
+  rclcpp
+  geometry_msgs
+  unitree_api
+  unitree_go
+)
+
+install(TARGETS
+  waypoint_navigator_mk2
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(waypoint_navigator_mk5 src/waypoint_navigator_mk5.cpp)
+
+ament_target_dependencies(waypoint_navigator_mk5
+  rclcpp
+  geometry_msgs
+  unitree_api
+  unitree_go
+)
+
+install(TARGETS
+  waypoint_navigator_mk5
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+add_executable(waypoint_navigator_mk6 src/waypoint_navigator_mk6.cpp)
+
+ament_target_dependencies(waypoint_navigator_mk6
+  rclcpp
+  geometry_msgs
+  unitree_api
+  unitree_go
+)
+
+install(TARGETS
+  waypoint_navigator_mk6
   DESTINATION lib/${PROJECT_NAME}
 )

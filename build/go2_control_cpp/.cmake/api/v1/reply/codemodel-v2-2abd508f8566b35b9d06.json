@@ -1,0 +1,96 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "go2_control_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "go2_control_cpp_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-go2_control_cpp_uninstall-6601126c9edca4299a6f.json",
+					"name" : "go2_control_cpp_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "manual_waypointRecorder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-manual_waypointRecorder-a84910aab63188e36dce.json",
+					"name" : "manual_waypointRecorder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "simple_go2_walker::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_go2_walker-5ee2216e9c3e1d9f1147.json",
+					"name" : "simple_go2_walker",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-d49a31ce547e758a825f.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "waypoint_navigator::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-waypoint_navigator-8a3cb471beedac7d9977.json",
+					"name" : "waypoint_navigator",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/younghang/ros2_ws/src/go2_control_cpp/build/go2_control_cpp",
+		"source" : "/home/younghang/ros2_ws/src/go2_control_cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

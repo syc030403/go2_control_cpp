@@ -1,0 +1,10 @@
+[01m[K/home/younghang/ros2_ws/src/go2_control_cpp/src/waypoint_navigator.cpp:[m[K In constructor ‘[01m[KWaypointNavigator::WaypointNavigator()[m[K’:
+[01m[K/home/younghang/ros2_ws/src/go2_control_cpp/src/waypoint_navigator.cpp:316:21:[m[K [01;35m[Kwarning: [m[K‘[01m[KWaypointNavigator::stage_[m[K’ will be initialized after [[01;35m[K-Wreorder[m[K]
+  316 |     NavigationStage [01;35m[Kstage_[m[K;
+      |                     [01;35m[K^~~~~~[m[K
+[01m[K/home/younghang/ros2_ws/src/go2_control_cpp/src/waypoint_navigator.cpp:314:12:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Ksize_t WaypointNavigator::current_waypoint_idx_[m[K’ [[01;35m[K-Wreorder[m[K]
+  314 |     size_t [01;35m[Kcurrent_waypoint_idx_[m[K;
+      |            [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/younghang/ros2_ws/src/go2_control_cpp/src/waypoint_navigator.cpp:40:5:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K-Wreorder[m[K]
+   40 |     [01;35m[KWaypointNavigator[m[K()
+      |     [01;35m[K^~~~~~~~~~~~~~~~~[m[K

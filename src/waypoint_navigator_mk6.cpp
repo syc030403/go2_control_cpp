@@ -5,6 +5,7 @@
  * - IMU Yaw: rad (오일러 각)
  * - Position: m (x, y)
  * - P 제어 기반 회전 및 이동
+ * - 딜레이 제거
  *********************************************************************/
 #include <chrono>
 #include <memory>
@@ -236,7 +237,7 @@ private:
             const double Kp_distance = 1;
             double speed = Kp_distance * distance;
             
-            const double min_speed = 0.5;
+            const double min_speed = 0.8;
             const double max_speed = 1.0;
             if (speed < min_speed) speed = min_speed;
             if (speed > max_speed) speed = max_speed;
@@ -273,14 +274,14 @@ private:
                 RCLCPP_INFO(this->get_logger(), "--- Moving to next waypoint [%d/%zu] ---",
                            current_waypoint_idx_ + 1, waypoints_.size());
                 printCurrentWaypoint();
-                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                //std::this_thread::sleep_for(std::chrono::milliseconds(500));
                 stage_ = STAGE_TURN_TO_WAYPOINT;
             }
             break;
         }
             
         case STAGE_COMPLETED: {
-            sendStop();
+            //sendStop();
             break;
         }
         }
