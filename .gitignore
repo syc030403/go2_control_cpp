@@ -10,3 +10,11 @@ logs/
 # 환경 설정 파일 제외
 .env
 config/local.json
+
+build/
+config/
+include/
+install/
+launch/
+log/
+maps/
