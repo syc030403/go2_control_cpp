@@ -1,20 +1,20 @@
-# 로그 파일 제외
+# colcon 빌드 산출물 (하위 어떤 경로든 제외: build/, src/build/ 등)
+build/
+install/
+log/
+
+# 로그 파일
 logs/
 *.log
 
-# 빌드 결과물 제외
-/build/
+# 오브젝트/빌드 파일
 *.o
 *.class
 
-# 환경 설정 파일 제외
+# 환경 설정 파일
 .env
 config/local.json
-
-build/
 config/
 include/
-install/
 launch/
-log/
 maps/
