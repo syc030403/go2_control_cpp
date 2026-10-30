@@ -78,12 +78,14 @@ source install/setup.bash
 
 ### 1) 웨이포인트 기록
 
+조종은 **Go2 컨트롤러(정식 리모컨)** 로 로봇을 직접 주행시키고, 그 동안 레코더 노드를 켜서 위치를 기록합니다.
+
 ```bash
 ros2 run go2_control_cpp manual_waypointRecorder_mk1 \
   --ros-args -p min_distance:=1.0 -p min_rotation_deg:=45.0 -p output_file:=waypoints.csv
 
 ros2 service call /start_recording std_srvs/srv/Trigger
-# 로봇을 조이스틱 등으로 주행
+# Go2 컨트롤러로 로봇을 조종하며 원하는 경로를 주행
 ros2 service call /stop_recording std_srvs/srv/Trigger
 ros2 service call /save_waypoints std_srvs/srv/Trigger
 ```
